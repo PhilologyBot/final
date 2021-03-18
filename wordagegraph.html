@@ -20,10 +20,10 @@ wordData = [];
 //year where the word was used most frequently. also pulled from the API
 maxFreqYear;
 
-//find the index of this year
-maxIndex;
+//find the ymax
+maxFreq;
 wordData.forEach(item => 
-	if (item.year === maxFreqYear) { maxIndex = item.frequency };
+	if (item.year === maxFreqYear) { maxFreq = item.frequency };
 );
 
 //add X axis
@@ -45,7 +45,7 @@ svg.append("text")
 
 //add Y axis
 var y = d3.scaleLinear()
-    .domain([0, wordData[maxIndex].frequency) //sets the Y axis limit to the max frequency
+    .domain([0, maxFreq) //sets the Y axis limit to the max frequency
     .range([height, 0]);
 	
 svg.append("g")
